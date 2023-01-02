@@ -9,16 +9,19 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var viewModel = MainViewModel()
+    
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchField:UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
     }
     
     @IBAction func searchButtonTapped(_ sender:UIButton) {
-        print("Test")
+        viewModel.fetchListForTableView(searchFieldInput: searchField.text)
     }
 
 

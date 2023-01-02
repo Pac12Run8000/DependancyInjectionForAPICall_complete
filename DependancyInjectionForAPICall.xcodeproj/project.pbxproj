@@ -13,6 +13,7 @@
 		091EADA82963431200DF2423 /* URLComponentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADA72963431200DF2423 /* URLComponentConstants.swift */; };
 		091EADAA2963489E00DF2423 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADA92963489E00DF2423 /* JsonParser.swift */; };
 		091EADAC296349F300DF2423 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADAB296349F300DF2423 /* MainViewModel.swift */; };
+		091EADAE29635D6D00DF2423 /* AcronymObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADAD29635D6D00DF2423 /* AcronymObject.swift */; };
 		095A286D29623246005F8126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A286C29623246005F8126 /* AppDelegate.swift */; };
 		095A286F29623246005F8126 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A286E29623246005F8126 /* SceneDelegate.swift */; };
 		095A287129623246005F8126 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A287029623246005F8126 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 		091EADA72963431200DF2423 /* URLComponentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentConstants.swift; sourceTree = "<group>"; };
 		091EADA92963489E00DF2423 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		091EADAB296349F300DF2423 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		091EADAD29635D6D00DF2423 /* AcronymObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcronymObject.swift; sourceTree = "<group>"; };
 		095A286929623246005F8126 /* DependancyInjectionForAPICall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependancyInjectionForAPICall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095A286C29623246005F8126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		095A286E29623246005F8126 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				091EADA02963414500DF2423 /* ObserveableObject.swift */,
+				091EADAD29635D6D00DF2423 /* AcronymObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				091EADA62963421600DF2423 /* CustomErrors.swift in Sources */,
 				091EADAA2963489E00DF2423 /* JsonParser.swift in Sources */,
 				095A287129623246005F8126 /* MainViewController.swift in Sources */,
+				091EADAE29635D6D00DF2423 /* AcronymObject.swift in Sources */,
 				095A286D29623246005F8126 /* AppDelegate.swift in Sources */,
 				091EADA82963431200DF2423 /* URLComponentConstants.swift in Sources */,
 				095A286F29623246005F8126 /* SceneDelegate.swift in Sources */,
