@@ -16,7 +16,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        setupBindings()
        
     }
     
@@ -25,5 +27,32 @@ class MainViewController: UIViewController {
     }
 
 
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.list.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = viewModel.list.value[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+extension MainViewController {
+    
+    func setupBindings() {
+        viewModel.list.bind { [weak self] list in
+            DispatchQueue.main.async {
+                guard let strongself = self else {return}
+                strongself.tableView.reloadData()
+            }
+        }
+    }
 }
 

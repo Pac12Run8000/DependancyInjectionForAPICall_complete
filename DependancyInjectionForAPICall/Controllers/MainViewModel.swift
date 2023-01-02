@@ -12,6 +12,10 @@ class MainViewModel {
     var list:ObserveableObject<[String]> = ObserveableObject([])
     
     func fetchListForTableView(searchFieldInput:String?) {
+        guard searchFieldInput != "" else {
+            print("Enter somthing in the text field")
+            return
+        }
         guard let input = searchFieldInput else {
             print("No search field found")
             return
@@ -20,12 +24,27 @@ class MainViewModel {
             print("No input entered.")
             return
         }
-        print("url:\(url)")
+        
+        fetchDataResponse(url: url) { result in
+            switch result {
+            case .failure(let error):
+                print("There was an error:\(error.description)")
+            case .success(let data):
+                self.parseAPIResponse(data: data) { res in
+                    switch res {
+                    case .failure(let err):
+                        print("err: \(err.localizedDescription)")
+                    case .success(let list):
+                        self.list.value = list
+                    }
+                }
+            }
+        }
         
         
     }
     
-    func parseAPIResponse(data:Data, completion:@escaping(Result<Bool, ParseError>) -> ()) {
+    func parseAPIResponse(data:Data, completion:@escaping(Result<[String], ParseError>) -> ()) {
         var outputList = [String]()
         let parser = JsonParser<AcronymObject>()
         parser.parseData(data: data) { result in
@@ -36,8 +55,7 @@ class MainViewModel {
                 for item in output[0].lfs {
                     outputList.append(item.lf)
                 }
-                self.list.value = outputList
-                completion(.success(true))
+                completion(.success(outputList))
             }
         }
     }
