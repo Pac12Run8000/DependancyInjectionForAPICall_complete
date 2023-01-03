@@ -18,29 +18,29 @@ class MainViewModel {
     var list:ObserveableObject<[String]> = ObserveableObject([])
     
     
-    func fetchListForTableView(searchFieldInput:String?) {
+    func fetchListForTableView(searchFieldInput:String?, completion:@escaping(Result<[String], Error>) -> ()) {
         
         guard let searchFieldInput = searchFieldInput?.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression) else {
+            completion(.failure(SearchInputError.invalidInput))
             return
         }
         
         guard searchFieldInput != "" else {
             print("Enter somthing in the text field")
+            completion(.failure(SearchInputError.emptyInput))
             return
         }
         
-        guard let input = searchFieldInput as? String else {
-            print("No search field found")
-            return
-        }
-        
+                
         guard !(searchFieldInput.trimmingCharacters(in: .whitespaces).isEmpty) else {
             print("There are white spaces but no characters.")
+            completion(.failure(SearchInputError.onlyWhitespace))
             return
         }
         
-        guard let url = fetchCompleteURL(key: .sf, value: input) else {
+        guard let url = fetchCompleteURL(key: .sf, value: searchFieldInput) else {
             print("No input entered.")
+            completion(.failure(SearchInputError.noTextFieldFound))
             return
         }
         
@@ -48,13 +48,16 @@ class MainViewModel {
             switch result {
             case .failure(let error):
                 print("There was an error:\(error.description)")
+                completion(.failure(error))
             case .success(let data):
                 self.parseAPIResponse(data: data) { res in
                     switch res {
                     case .failure(let err):
                         print("err: \(err.localizedDescription)")
+                        completion(.failure(err))
                     case .success(let list):
                         self.list.value = list
+                        completion(.success(list))
                     }
                 }
             }

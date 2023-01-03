@@ -23,7 +23,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func searchButtonTapped(_ sender:UIButton) {
-        viewModel?.fetchListForTableView(searchFieldInput: searchField.text)
+        viewModel?.fetchListForTableView(searchFieldInput: searchField.text, completion: { _ in
+            
+        })
     }
 
 
