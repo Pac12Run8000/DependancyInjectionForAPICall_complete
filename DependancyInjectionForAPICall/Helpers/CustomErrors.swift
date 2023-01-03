@@ -7,6 +7,14 @@
 
 import Foundation
 
+
+enum SearchInputError: Error {
+    case invalidInput
+    case emptyInput
+    case onlyWhitespace
+    case invalidURL
+}
+
 enum ParseError:Error {
     case modelNotMatchingData
 }

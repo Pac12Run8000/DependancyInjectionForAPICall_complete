@@ -8,8 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-  
-//    var viewModel = MainViewModel(networkingService: NetworkingService())
+
     var viewModel:MainViewModel?
     
     @IBOutlet weak var tableView:UITableView!

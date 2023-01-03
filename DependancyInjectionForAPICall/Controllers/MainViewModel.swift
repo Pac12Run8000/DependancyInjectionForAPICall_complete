@@ -9,8 +9,6 @@ import Foundation
 
 class MainViewModel {
     
-   
-    
     var networkingService:NetworkingService
     
     init(networkingService: NetworkingService) {
@@ -60,10 +58,6 @@ class MainViewModel {
             }
 
         }
-        
-      
-        
-        
     }
     
     func parseAPIResponse(data:Data, completion:@escaping(Result<[String], ParseError>) -> ()) {
