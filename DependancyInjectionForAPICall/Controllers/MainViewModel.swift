@@ -17,6 +17,7 @@ class MainViewModel {
     
     var list:ObserveableObject<[String]> = ObserveableObject([])
     
+    
     func fetchListForTableView(searchFieldInput:String?) {
         
         guard let searchFieldInput = searchFieldInput?.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression) else {
@@ -27,6 +28,7 @@ class MainViewModel {
             print("Enter somthing in the text field")
             return
         }
+        
         guard let input = searchFieldInput as? String else {
             print("No search field found")
             return
@@ -68,8 +70,10 @@ class MainViewModel {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let output):
-                for item in output[0].lfs {
-                    outputList.append(item.lf)
+                if output.count > 0 {
+                    for item in output[0].lfs {
+                        outputList.append(item.lf)
+                    }
                 }
                 completion(.success(outputList))
             }

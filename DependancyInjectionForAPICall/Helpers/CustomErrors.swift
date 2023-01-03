@@ -13,6 +13,7 @@ enum SearchInputError: Error {
     case emptyInput
     case onlyWhitespace
     case invalidURL
+    case noTextFieldFound
 }
 
 enum ParseError:Error {
