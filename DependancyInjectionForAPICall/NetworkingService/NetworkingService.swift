@@ -8,8 +8,6 @@
 import Foundation
 
 final class NetworkingService {
-    static let shared = NetworkingService()
-    
     public func fetchAPIResponse(url:URL, completion:@escaping(Result<Data,ResponseError>) -> ()) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {

@@ -8,8 +8,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
-    var viewModel = MainViewModel()
+  
+//    var viewModel = MainViewModel(networkingService: NetworkingService())
+    var viewModel:MainViewModel?
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchField:UITextField!
@@ -23,7 +24,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func searchButtonTapped(_ sender:UIButton) {
-        viewModel.fetchListForTableView(searchFieldInput: searchField.text)
+        viewModel?.fetchListForTableView(searchFieldInput: searchField.text)
     }
 
 
@@ -32,12 +33,12 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.list.value.count
+        viewModel?.list.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.list.value[indexPath.row]
+        cell.textLabel?.text = viewModel?.list.value[indexPath.row]
         return cell
     }
     
@@ -47,7 +48,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 extension MainViewController {
     
     func setupBindings() {
-        viewModel.list.bind { [weak self] list in
+        viewModel?.list.bind { [weak self] list in
             DispatchQueue.main.async {
                 guard let strongself = self else {return}
                 strongself.tableView.reloadData()

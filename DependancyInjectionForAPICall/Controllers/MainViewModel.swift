@@ -9,6 +9,14 @@ import Foundation
 
 class MainViewModel {
     
+   
+    
+    var networkingService:NetworkingService
+    
+    init(networkingService: NetworkingService) {
+        self.networkingService = networkingService
+    }
+    
     var list:ObserveableObject<[String]> = ObserveableObject([])
     
     func fetchListForTableView(searchFieldInput:String?) {
@@ -36,7 +44,7 @@ class MainViewModel {
             return
         }
         
-        fetchDataResponse(url: url) { result in
+        networkingService.fetchAPIResponse(url: url) { result in
             switch result {
             case .failure(let error):
                 print("There was an error:\(error.description)")
@@ -50,7 +58,10 @@ class MainViewModel {
                     }
                 }
             }
+
         }
+        
+      
         
         
     }
@@ -78,27 +89,6 @@ class MainViewModel {
         return url
     }
     
-    func fetchDataResponse(url:URL?, session:URLSession = URLSession.shared, completion:@escaping(Result<Data, ResponseError>) -> ()) {
-        guard let url = url else {
-            completion(.failure(.noUrl))
-            return
-        }
-        let task = session.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-            guard let response = response as? HTTPURLResponse, (200...300) ~= response.statusCode else {
-                completion(.failure(.badStatusCode))
-                return
-            }
-            guard error == nil else {
-                completion(.failure(.badStatusCode))
-                return
-            }
-            completion(.success(data))
-        }
-        task.resume()
-    }
+    
     
 }
