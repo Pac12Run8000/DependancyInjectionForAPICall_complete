@@ -7,11 +7,17 @@
 
 import Foundation
 
+
+/*
+ I'm not creating an instance of my viewmodel. Instead, I am making a property and allowing it to be passed to the object during initialization.
+ */
+
+
 class MainViewModel {
     
-    var networkingService:NetworkingService
+    var networkingService:NetworkingServiceForAPIResponse
     
-    init(networkingService: NetworkingService) {
+    init(networkingService: NetworkingServiceForAPIResponse) {
         self.networkingService = networkingService
     }
     

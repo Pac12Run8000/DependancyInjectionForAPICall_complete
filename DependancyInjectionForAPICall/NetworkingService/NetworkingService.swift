@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class NetworkingService {
+final class NetworkingService: NetworkingServiceForAPIResponse {
     public func fetchAPIResponse(url:URL, completion:@escaping(Result<Data,ResponseError>) -> ()) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {

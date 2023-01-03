@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct DependancyProvider {
-    static var service:NetworkingService {
+    static var service:NetworkingServiceForAPIResponse {
         return NetworkingService()
     }
     
