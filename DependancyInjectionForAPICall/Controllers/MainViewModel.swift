@@ -12,14 +12,25 @@ class MainViewModel {
     var list:ObserveableObject<[String]> = ObserveableObject([])
     
     func fetchListForTableView(searchFieldInput:String?) {
+        
+        guard let searchFieldInput = searchFieldInput?.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression) else {
+            return
+        }
+        
         guard searchFieldInput != "" else {
             print("Enter somthing in the text field")
             return
         }
-        guard let input = searchFieldInput else {
+        guard let input = searchFieldInput as? String else {
             print("No search field found")
             return
         }
+        
+        guard !(searchFieldInput.trimmingCharacters(in: .whitespaces).isEmpty) else {
+            print("There are white spaces but no characters.")
+            return
+        }
+        
         guard let url = fetchCompleteURL(key: .sf, value: input) else {
             print("No input entered.")
             return
