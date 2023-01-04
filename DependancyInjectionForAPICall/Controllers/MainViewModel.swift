@@ -49,13 +49,14 @@ class MainViewModel {
             completion(.failure(SearchInputError.noTextFieldFound))
             return
         }
-        
+        print("url:\(url)")
         networkingService.fetchAPIResponse(url: url) { result in
             switch result {
             case .failure(let error):
                 print("There was an error:\(error.description)")
                 completion(.failure(error))
             case .success(let data):
+                print("data: \(data)")
                 self.parseAPIResponse(data: data) { res in
                     switch res {
                     case .failure(let err):
@@ -79,6 +80,7 @@ class MainViewModel {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let output):
+                print("output string:\(output)")
                 if output.count > 0 {
                     for item in output[0].lfs {
                         outputList.append(item.lf)

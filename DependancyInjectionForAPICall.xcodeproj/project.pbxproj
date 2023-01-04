@@ -16,6 +16,7 @@
 		091EADAE29635D6D00DF2423 /* AcronymObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADAD29635D6D00DF2423 /* AcronymObject.swift */; };
 		091EADB0296407B700DF2423 /* DependancyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADAF296407B700DF2423 /* DependancyProvider.swift */; };
 		091EADB32964C3E300DF2423 /* NetworkingServiceForAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADB22964C3E300DF2423 /* NetworkingServiceForAPIResponse.swift */; };
+		091EADBB2964D31400DF2423 /* DependancyInjectionForAPICallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EADBA2964D31400DF2423 /* DependancyInjectionForAPICallTests.swift */; };
 		095A286D29623246005F8126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A286C29623246005F8126 /* AppDelegate.swift */; };
 		095A286F29623246005F8126 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A286E29623246005F8126 /* SceneDelegate.swift */; };
 		095A287129623246005F8126 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A287029623246005F8126 /* MainViewController.swift */; };
@@ -23,6 +24,16 @@
 		095A287629623248005F8126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 095A287529623248005F8126 /* Assets.xcassets */; };
 		095A287929623248005F8126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095A287729623248005F8126 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		091EADBC2964D31400DF2423 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 095A286129623246005F8126 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 095A286829623246005F8126;
+			remoteInfo = DependancyInjectionForAPICall;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		091EADA02963414500DF2423 /* ObserveableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveableObject.swift; sourceTree = "<group>"; };
@@ -34,6 +45,8 @@
 		091EADAD29635D6D00DF2423 /* AcronymObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcronymObject.swift; sourceTree = "<group>"; };
 		091EADAF296407B700DF2423 /* DependancyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependancyProvider.swift; sourceTree = "<group>"; };
 		091EADB22964C3E300DF2423 /* NetworkingServiceForAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceForAPIResponse.swift; sourceTree = "<group>"; };
+		091EADB82964D31400DF2423 /* DependancyInjectionForAPICallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DependancyInjectionForAPICallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		091EADBA2964D31400DF2423 /* DependancyInjectionForAPICallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependancyInjectionForAPICallTests.swift; sourceTree = "<group>"; };
 		095A286929623246005F8126 /* DependancyInjectionForAPICall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependancyInjectionForAPICall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095A286C29623246005F8126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		095A286E29623246005F8126 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		091EADB52964D31400DF2423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		095A286629623246005F8126 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,10 +85,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		091EADB92964D31400DF2423 /* DependancyInjectionForAPICallTests */ = {
+			isa = PBXGroup;
+			children = (
+				091EADBA2964D31400DF2423 /* DependancyInjectionForAPICallTests.swift */,
+			);
+			path = DependancyInjectionForAPICallTests;
+			sourceTree = "<group>";
+		};
 		095A286029623246005F8126 = {
 			isa = PBXGroup;
 			children = (
 				095A286B29623246005F8126 /* DependancyInjectionForAPICall */,
+				091EADB92964D31400DF2423 /* DependancyInjectionForAPICallTests */,
 				095A286A29623246005F8126 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				095A286929623246005F8126 /* DependancyInjectionForAPICall.app */,
+				091EADB82964D31400DF2423 /* DependancyInjectionForAPICallTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +175,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		091EADB72964D31400DF2423 /* DependancyInjectionForAPICallTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 091EADBE2964D31400DF2423 /* Build configuration list for PBXNativeTarget "DependancyInjectionForAPICallTests" */;
+			buildPhases = (
+				091EADB42964D31400DF2423 /* Sources */,
+				091EADB52964D31400DF2423 /* Frameworks */,
+				091EADB62964D31400DF2423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				091EADBD2964D31400DF2423 /* PBXTargetDependency */,
+			);
+			name = DependancyInjectionForAPICallTests;
+			productName = DependancyInjectionForAPICallTests;
+			productReference = 091EADB82964D31400DF2423 /* DependancyInjectionForAPICallTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		095A286829623246005F8126 /* DependancyInjectionForAPICall */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 095A287D29623248005F8126 /* Build configuration list for PBXNativeTarget "DependancyInjectionForAPICall" */;
@@ -172,6 +220,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					091EADB72964D31400DF2423 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 095A286829623246005F8126;
+					};
 					095A286829623246005F8126 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -191,11 +243,19 @@
 			projectRoot = "";
 			targets = (
 				095A286829623246005F8126 /* DependancyInjectionForAPICall */,
+				091EADB72964D31400DF2423 /* DependancyInjectionForAPICallTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		091EADB62964D31400DF2423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		095A286729623246005F8126 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,6 +269,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		091EADB42964D31400DF2423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				091EADBB2964D31400DF2423 /* DependancyInjectionForAPICallTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		095A286529623246005F8126 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +298,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		091EADBD2964D31400DF2423 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 095A286829623246005F8126 /* DependancyInjectionForAPICall */;
+			targetProxy = 091EADBC2964D31400DF2423 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		095A287229623246005F8126 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -250,6 +326,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		091EADBF2964D31400DF2423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93TAG27MAJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GroverTech.DependancyInjectionForAPICallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DependancyInjectionForAPICall.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DependancyInjectionForAPICall";
+			};
+			name = Debug;
+		};
+		091EADC02964D31400DF2423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93TAG27MAJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GroverTech.DependancyInjectionForAPICallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DependancyInjectionForAPICall.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DependancyInjectionForAPICall";
+			};
+			name = Release;
+		};
 		095A287B29623248005F8126 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +535,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		091EADBE2964D31400DF2423 /* Build configuration list for PBXNativeTarget "DependancyInjectionForAPICallTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				091EADBF2964D31400DF2423 /* Debug */,
+				091EADC02964D31400DF2423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		095A286429623246005F8126 /* Build configuration list for PBXProject "DependancyInjectionForAPICall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

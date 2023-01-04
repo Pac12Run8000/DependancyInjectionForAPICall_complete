@@ -29,3 +29,11 @@ final class NetworkingService: NetworkingServiceForAPIResponse {
     }
 }
 
+
+class MockNetworkingService: NetworkingServiceForAPIResponse {
+    func fetchAPIResponse(url: URL, completion: @escaping (Result<Data, ResponseError>) -> ()) {
+        // Transform acronym object to data
+    }
+    
+    
+}

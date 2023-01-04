@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupBindings()
-       
+        
+
     }
     
     @IBAction func searchButtonTapped(_ sender:UIButton) {
