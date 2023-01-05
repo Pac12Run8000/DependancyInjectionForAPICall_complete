@@ -23,13 +23,14 @@ struct URLComponentConstants {
         }
             return components
         }
-    
-
-
 }
 
 enum URLQueryName:String {
     case sf
     case lf
+}
+
+struct TestConstants {
+    static let axUrl = "http://nactem.ac.uk/software/acromine/dictionary.py?sf=ax"
 }
 

@@ -6,9 +6,10 @@
 //
 
 import XCTest
+@testable import DependancyInjectionForAPICall
 
 final class DependancyInjectionForAPICallTests: XCTestCase {
-
+    /*
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -16,14 +17,44 @@ final class DependancyInjectionForAPICallTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+     */
+    var mochNetworkingService:NetworkingServiceForAPIResponse!
+    var viewModel:MainViewModel!
+     
+    
+    override func setUp() {
+        super.setUp()
+        mochNetworkingService = MockNetworkingService()
+        viewModel = MainViewModel(networkingService: mochNetworkingService)
     }
+    
+    override func tearDown() {
+        super.tearDown()
+        mochNetworkingService = nil
+    }
+
+    func testMockListGeneration() throws {
+        let url = URL(string: TestConstants.axUrl)!
+        mochNetworkingService.fetchAPIResponse(url: url) { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertNil(error)
+            case .success(let acroObj):
+                XCTAssertEqual(acroObj.count, 1)
+                self.viewModel.fetchListFromAcronymObject(acrObj: acroObj) { res in
+                    switch res {
+                    case .success(let list):
+                        XCTAssertEqual(list.count, 7)
+                    case .failure(let err):
+                        XCTAssertNil(err)
+                    }
+                }
+            }
+        }
+        
+        
+    }
+
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
