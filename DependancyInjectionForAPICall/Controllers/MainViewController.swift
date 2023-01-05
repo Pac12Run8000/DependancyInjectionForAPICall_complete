@@ -20,6 +20,19 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         setupBindings()
         
+        guard let url = URL(string: "http://nactem.ac.uk/software/acromine/dictionary.py?sf=xy") else {
+            return
+        }
+        let mock = MockNetworkingService()
+        mock.fetchAPIResponse(url: url) { result in
+            switch result {
+            case .failure(let err):
+                print("this is a mock err:\(err)")
+            case .success(let data):
+                print("data output:\(data)")
+            }
+        }
+        
 
     }
     
