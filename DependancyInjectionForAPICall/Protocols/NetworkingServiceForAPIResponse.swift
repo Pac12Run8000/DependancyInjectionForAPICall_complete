@@ -9,5 +9,5 @@ import Foundation
 
 
 protocol NetworkingServiceForAPIResponse {
-    func fetchAPIResponse(url:URL, completion:@escaping(Result<Data,ResponseError>) -> ())
+    func fetchAPIResponse(url:URL, completion:@escaping(Result<AcronymObject,ResponseError>) -> ())
 }

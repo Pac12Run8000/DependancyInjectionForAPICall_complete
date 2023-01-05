@@ -55,42 +55,45 @@ class MainViewModel {
             case .failure(let error):
                 print("There was an error:\(error.description)")
                 completion(.failure(error))
-            case .success(let data):
-                print("data: \(data)")
-                self.parseAPIResponse(data: data) { res in
+            case .success(let acronymObj):
+                print("acronymObj: \(acronymObj)")
+                self.fetchListFromAcronymObject(acrObj: acronymObj) { res in
                     switch res {
-                    case .failure(let err):
-                        print("err: \(err.localizedDescription)")
-                        completion(.failure(err))
-                    case .success(let list):
-                        self.list.value = list
-                        completion(.success(list))
+                    case .success(let output):
+                        self.list.value = output
+                    case .failure(_):
+                        print("There was an error.")
                     }
                 }
+                
             }
 
         }
     }
     
-    func parseAPIResponse(data:Data, completion:@escaping(Result<[String], ParseError>) -> ()) {
-        var outputList = [String]()
+    public func fetchListFromAcronymObject(acrObj:AcronymObject, completion:@escaping(Result<[String], Error>) -> ()) {
+        var list = [String]()
+        if acrObj.count > 0 {
+            for item in acrObj[0].lfs {
+                list.append(item.lf)
+            }
+        }
+        completion(.success(list))
+    }
+    
+    
+    private func parseAPIResponse(data:Data, completion:@escaping(Result<AcronymObject, ParseError>) -> ()) {
         let parser = JsonParser<AcronymObject>()
         parser.parseData(data: data) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let output):
-                print("output string:\(output)")
-                if output.count > 0 {
-                    for item in output[0].lfs {
-                        outputList.append(item.lf)
-                    }
-                }
-                completion(.success(outputList))
+                completion(.success(output))
             }
         }
     }
-    
+
     func fetchCompleteURL(key:URLQueryName, value:String) -> URL? {
         guard let url = URLComponentConstants.createURLWithComponents(queryParameters: [key.rawValue:value])?.url else {
             return nil
